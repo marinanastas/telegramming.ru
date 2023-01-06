@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block title %}
+Печатаю тебе | Телеграммы
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-lg" id="header">
+    
+		<a class="navbar-brand" href="{{ url_for('index') }}">Печатаю тебе</a>
+    
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      
+		<span class="navbar-toggler-icon"></span>
+    
+	</button>
+
+    
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+		<ul class="navbar-nav ml-auto">
+        
+		<li class="nav-item">
+          
+		<a class="nav-link" href="{{ url_for('telegrams') }}">Телеграммы<span class="sr-only">(current)</span></a>
+        </li>
+        
+		<li class="nav-item">
+          
+		<a class="nav-link" href="{{ url_for('add') }}">Добавить телеграмму</a>
+        </li>
+        
+		<li class="nav-item">
+          
+		<a class="nav-link" href="{{ url_for('longread') }}">Читать текст исследования</a>
+        
+		</li>
+      
+		</ul>
+    
+		</div>
+  
+	</nav>
+
+ 
+    	<div class="py-5 text-center" style="margin-top: 3em;">
+      	<h2>Телеграммы</h2>
+      	<p class="lead">Мы собрали для вас большой датасет из телеграмм. На этой странице вы можете просмотреть первые 10 
+ из них, полный датасет вы можете загрузить по кнопке внизу экрана.</p>
+    </div>
+<div class = "container">
+<table class="table" style = "text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Текст</th>
+      <th scope="col">Отправитель</th>
+      <th scope="col">Получатель</th>
+      <th scope="col">Ссылка на изображение</th>     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">tg00001</th>
+      <td>ПОЗДРАВЛЯЕМ С ДНЕМ РОЖДЕНИЯ УСПЕХОВ ТЕБЕ СЧАСТЬЯ РАДОСТИ = МИЩЕНКО ВОЛКОВЫ</td>
+      <td>коллективный (семья Мищенко), коллективный (семья Волковых)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1f7K5Noy7ccds-iF6_7Bo8baFOvmAVwQb/view?usp=sharing, https://drive.google.com/file/d/1PThvK6-jhwYrkeJ9KOLl0C1MEhwHijBi/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00002</th>
+      <td>ПОЗДРАВЛЯЕМ ДНЕМ РОЖДЕНИЯ ЖЕЛАЕМ ЗДОРОВЬЯ УСПЕХОВ УЧЕБЕ ПОЗДРАВЛЕНИЕ БАБУШКИ ОЛИ = МАМА ПАПА</td>
+      <td>NA (мама, папа)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1vlnlkM97jy2z7z1kHHaI-5EXplYKl7AO/view?usp=sharing, https://drive.google.com/file/d/1YKmLPP__1_YcwuT2gsW6rHjpJ1oMEWqX/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00003</th>
+      <td>МИЛАЯ ЖЕНЕЧКА ПОЗДРАВЛЯЮ ТЕБЯ С ДНЕМ РОЖДЕНИЯ ЖЕЛАЮ УСПЕШНОЙ СДАЧИ ЭКЗАМЕНОВ БОДРОГО НАСТРОЕНИЯ ЦЕЛУЮ = ЛЕНА -</td>
+      <td>NA (Лена)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1KYSHhYX0WYMW1w8j6cINaDNwPP61aNIZ/view?usp=sharing, https://drive.google.com/file/d/1AQCuavxnYBO4ctxGYZ9M8ssFiSAkqZAC/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00004</th>
+      <td>ПОЗДРАВЛЯЮ РАДОСТНЫМ СЧСТЛИВЫМ <СЧАСТЛИВЫМ> ДНЕМ РОЖДЕНИЯ ПУСТЬ СБУДУТСЯ ВСЕ МЕЧТЫ ЦЕЛУЮ = ЛЕНА</td>
+      <td>NA (Лена)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1GpzLUa-get3GPGTCRqW1_CWYJief3Tp-/view?usp=sharing, https://drive.google.com/file/d/1IcNKk0bMyQGQZNNr2ElVeFVinm9TVrvG/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00005</th>
+      <td>ПОЗДРАВЛЯЕМ ДНЕМ РОЖДЕНИЯ ЖЕЛАЕМ СЧАСТЬЯ ЗДОРОВЬЯ = ПАПА МАМА</td>
+      <td>NA (мама, папа)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1UdBzEB5FbL71yvNoR2CL-sPpYeq-14mz/view?usp=sharing, https://drive.google.com/file/d/1vauzsoP1mnSNPAxcbU12IxX9-bJQMZtq/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00006</th>
+      <td>ПОЗДРАВЛЯЕМ УСПЕШНЫМ ОКОНЧАНИЕМ УЧЕБЫ ЖДЕМ ПОДРОБНОСТИ ПИСЬМОМ = ПАПА МАМА ОЛЯ НАТАША ВОВА</td>
+      <td>NA (мама, папа), NA (Оля, Наташа)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1HegqlEqAq3BE45AN28YTlXmKCsLOl-tf/view?usp=sharing, https://drive.google.com/file/d/1I-39Uay_btgO-BMNbl0qogntq-LPUzPB/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00007</th>
+      <td>ПОЗДРАВЛЯЮ С ДНЕМ РОЖДЕНИЯ ЖЕЛАЮ БОЛЬШОГО СЧАСТЬЯ УСПЕХОВ В УЧЕБЕ ЦЕЛУЮ = ЛЕНА</td>
+      <td>NA (Лена)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/11i0MJxsGUjNlMpnmEuTkugoSSyxg5YeT/view?usp=sharing, https://drive.google.com/file/d/1JTHag8YR_yRF1fQ-iJq7Pmvt6uk2fSKx/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00008</th>
+      <td>ПОЗДРАВЛЯЮ С ДНЕМ РОЖДЕНИЯ ПОЖЕЛАНИЯ САМЫЕ ЛУЧШИЕ ЦЕЛУЮ = ЛЕНА</td>
+      <td>NA (Лена)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/103yE0wNFYiL2tIArOvhHPPtvfV9S4C30/view?usp=sharing, https://drive.google.com/file/d/103yE0wNFYiL2tIArOvhHPPtvfV9S4C30/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00009</th>
+      <td>ПОЗДРАВЛЯЮ С ДНЕМ РОЖДЕНИЯ ЖЕЛАЮ ТВОРЧЕСКИХ УСПЕХОВ СЧАСТЬЯ ЗДОРОВЬЯ ЦЕЛУЮ = ЛЕНА</td>
+      <td>NA (Лена)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/1uYsPZtspGghXQcuFTcN2GDjFYpNDQ_RM/view?usp=sharing, https://drive.google.com/file/d/1vAShUCDI_OScFx8vMQ34mQxpBdt3Z6Oa/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+    <tr>
+      <th scope="row">tg00010</th>
+      <td>ПОЗДРАВЛЯЮ СЕРЕБРЯННУЮ ЖЕНЮ ПОЖЕЛАНИЯ САМЫЕ НОВОРОЖДЕННЫЕ ЦЕЛУЮ = ЛЕНА-</td>
+      <td>NA (Лена)</td>
+      <td>Мищенко Евгения Васильевна</td>
+      <td><a href ="https://drive.google.com/file/d/135Q5QUejKZXWMTHHAD5qtaj2P3v7BEpV/view?usp=sharing, https://drive.google.com/file/d/1Cx1P_lvm0cb1nbqF51jILtSE0ZKIB8g0/view?usp=sharing" target = _blank>Изображение</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<a href ="https://docs.google.com/spreadsheets/d/1aFBtCDLyAPkbEhgT6zBSwoczx5YanIMpJAV13GQTo1s/edit?usp=sharing" target = "_blank" style = "color: white"><button class="btn btn-primary btn-lg btn-block" type="button" style ="width: 20%; height: 5%; margin-right: auto; margin-left: auto; margin-bottom: 5%;">Посмотреть датасет</a></button>
+
+{% endblock %}

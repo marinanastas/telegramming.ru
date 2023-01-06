@@ -1,0 +1,55 @@
+ {% extends "base.html" %}
+ {% block title %}
+ Печатаю тебе | Главная
+ {% endblock %}
+ {% block body %}
+  <div class="jumbotron">
+    <h1 class="display-4">Печатаю тебе</h1>
+    <p class="lead">«<b>Печатаю тебе</b>» — проект по оцифровке и анализу русскоязычных телеграмм, вдохновлённый аналогичным проектом
+      <a href="https://sysblok.ru/postcards/">«Пишу тебе»</a>. Мы собираем телеграммы со всех уголков постсоветского пространства и не только, оцифровываем их и анализируем
+      методами компьютерной лингвистики и Digital Humanities.</p>
+    <p class="lead">Наша главная цель — сохранение исторического наследия и изучение телеграмм как средства коммуникации.
+      Для этого мы создали базу данных телеграмм на русском языке, которая открыта к постоянному пополнению.
+      Чтобы достоверно фиксировать все параметры телеграмм, мы придумали такую разметку, которая максимально учитывает
+      всю информацию, которая содержится в телеграмме.</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" id="btn1" href="{{ url_for('telegrams') }}" role="button">Посмотреть телеграммы</a>
+    <a class="btn btn-primary btn-lg" id="btn2" href="{{ url_for('longread') }}" role="button">Посмотреть исследование</a>
+    <a class="btn btn-primary btn-lg" id="btn3" href="{{ url_for('add') }}" role="button">Добавить телеграммы</a>
+  </div>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00648.jpg') }}" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00688-1.jpg') }}" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00483-1.jpg') }}" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00592.jpg') }}" alt="Fourth slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00646-1.jpg') }}" alt="Fifth slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00714.jpg') }}" alt="Sixth slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ url_for('static', filename='images/tg00518.jpg') }}" alt="Seventh slide">
+      </div>
+    </div>
+  </div>
+ {% endblock %}

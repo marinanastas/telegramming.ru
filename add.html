@@ -1,0 +1,159 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+Печатаю тебе | Добавить телеграмму
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="container" id="container_1">
+
+    <div class="py-5 text-center">
+
+
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/postal.jpg') }}" alt="" width="800"
+            height="440">
+
+        <h2>Поделитесь своей телеграммой</h2>
+
+        <p class="lead">
+            Мы бережно собираем телеграммы со всех уголков мира, и мы рады каждому новому экземпляру в нашей
+            коллекции. В этой форме вы можете поделиться телеграммой из своего семейного архива.
+        </p>
+    </div>
+
+    <form action="{{ url_for('add_user_data') }}" method="post" id="userDataForm">
+
+        <div class="mb-3">
+            <label for="username">Представьтесь, пожалуйста </label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="username" placeholder="Имя, фамилия (по желанию)"
+                    name="username" required>
+                <div class="invalid-feedback" style="width: 100%;">Это поле обязательно.</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="picture-link">Ссылка на изображение *</label>
+            <input type="link" class="form-control" id="picture-link"
+                placeholder="Загрузите фото или скан телеграммы на Google / Яндекс Диск и поделитесь доступом"
+                name="picture_link" required>
+
+            <div class="invalid-feedback">Введите корректную ссылку.</div>
+
+        </div>
+
+        <label for="volunteer">Хотите ли вы помочь нам с расшифровкой своей телеграммы? *</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="volunteer" value="true">
+            <label class="form-check-label" for="true">Да</label>
+
+        </div>
+
+        <div class="form-check">
+
+            <input class="form-check-input" type="radio" name="volunteer" value="false">
+
+            <label class="form-check-label" for="false">Нет</label>
+
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+
+            <label for="contact">Как с вами можно связаться? * </label>
+
+            <input type="contact" class="form-control" id="contact" name="contact_info"
+                placeholder="Телефон, адрес почты или контакт в любом мессенджере" required>
+            </input>
+            <div class=" invalid-feedback">
+                Введите, пожалуйста, ваши контакты. Это поможет нам быть на связи.
+            </div>
+
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="custom-control custom-checkbox">
+
+            <input type="checkbox" class="custom-control-input" id="privacy-policy"
+                onchange="document.getElementById('sendOnSubmit').disabled = !this.checked;">
+
+            <label class="custom-control-label" for="privacy-policy">
+                Я согласен(-на) на обработку и хранение предоставленных мной данных
+            </label>
+
+        </div>
+
+        <hr class="mb-4">
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="sendOnSubmit" disabled
+            style="width: 20%; height: 5%; margin-right: auto; margin-left: auto; margin-bottom: 5%;">Отправить</button>
+
+    </form>
+
+</div>
+
+<script>
+    let userDataForm = document.getElementById("userDataForm");
+    //Define the event handler for the form when it's submitted
+    userDataForm.addEventListener("submit", async (e) => {
+        //Prevent browser default behavior
+        e.preventDefault();
+
+        //Get the entire form fields
+        let form = e.currentTarget;
+
+        //Get URL for api endpoint
+        let url = form.action;
+
+        try {
+            //Form field instance
+            let formData = new FormData(form);
+            //Call the `postFormFieldsJson()` function
+            let responseData = await postFormFieldsAsJson({ url, formData });
+            location.assign("{{ url_for('thankyou') }}");
+        } catch (error) {
+            // Handle the error here.
+            console.error(`An has occured ${error}`);
+        }
+    })
+    async function postFormFieldsAsJson({ url, formData }) {
+            //Create an object from the form data entries
+            let formDataObject = Object.fromEntries(formData.entries());
+            // Format the plain form data as JSON
+            let formDataJsonString = JSON.stringify(formDataObject);
+            console.log(formDataJsonString)
+
+            //Set the fetch options (headers, body)
+            let fetchOptions = {
+                //HTTP method set to POST.
+                method: "POST",
+                //Set the headers that specify you're sending a JSON body request and accepting JSON response
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                // POST request body as JSON string.
+                body: formDataJsonString,
+            };
+
+            //Get the response body as JSON.
+            //If the response was not OK, throw an error.
+            let res = await fetch(url, fetchOptions);
+
+            //If the response is not ok throw an error (for debugging)
+            if (!res.ok) {
+                let error = await res.text();
+                throw new Error(error);
+            }
+            //If the response was OK, return the response body.
+            return res.json();
+        }
+</script>
+
+{% endblock %}
