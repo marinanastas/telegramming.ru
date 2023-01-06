@@ -1,0 +1,97 @@
+.navbar {
+    background-color: #586bb7;
+    color: white;
+    position: fixed;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+}
+
+.header {
+    position: fixed;
+}
+
+.navbar-brand {
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav-link {
+    color:white;
+}
+
+.jumbotron {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    background-color: white;
+    /*background: url('images/new2.png');*/
+    opacity: 1;
+    text-align: center;
+    /*text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;*/
+    color: black; 
+}
+
+.display-4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.lead {
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+#btn1 {
+    margin-right: 20px;
+}
+
+#btn2 {
+    margin-right: 20px;
+}
+
+#carouselExampleIndicators {
+    margin: 150px;
+    margin-top: 0px;
+    margin-bottom: 75px;
+    z-index: -1;
+}
+
+footer {
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 2.75em;
+    color: white;
+    background-color: #AE9886;
+  }
+
+  form{
+    width:300px;
+  }
+  
+  fieldset{
+    background-color:#9caffb;
+    border:solid 1px;
+  }
+  
+  /*label, input, legend{
+    font-family:sans-serif;
+  }*/
+  
+  legend{
+    font-size:18px;
+    border:solid 1px;
+    width:75%;
+    background-color:#9caffb;
+  }
+  
+  a {
+    color:#364995;
+  }
+  a:hover{
+    color:#586bb7;
+  }
+  a:visited {
+    color:#291d14;
+  }
